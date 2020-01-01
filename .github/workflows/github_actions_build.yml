@@ -28,7 +28,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: cmake
-      run: cmake -G ${{ matrix.generator }} .
+      run: |
+        cmake --version
+        cmake -G ${{ matrix.generator }} .
     - name: build
       run: cmake --build .
     - name: test
