@@ -24,6 +24,7 @@ jobs:
           os: macOS-latest
           generator: '"Unix Makefiles"'  
     runs-on: ${{ matrix.os }}
+    fail-fast: false
     steps:
     - uses: actions/checkout@master
     - name: cmake
