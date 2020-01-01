@@ -1,6 +1,6 @@
 add_executable(catch2_build_tests
         main.cpp
-        BasicApprovalTest.cpp
+        Catch2BasicApprovalTest.cpp
         )
 target_link_libraries(catch2_build_tests PRIVATE ApprovalTests Catch2::Catch2)
 if (TARGET Catch2::Catch2Main)
