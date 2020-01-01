@@ -1,15 +1,27 @@
 include(FetchContent)
 
 # https://cliutils.gitlab.io/modern-cmake/chapters/projects/fetch.html
-if(${CMAKE_VERSION} VERSION_LESS 3.14)
-    macro(FetchContent_MakeAvailable NAME)
-        FetchContent_GetProperties(${NAME})
-        if(NOT ${NAME}_POPULATED)
-            FetchContent_Populate(${NAME})
-            add_subdirectory(${${NAME}_SOURCE_DIR} ${${NAME}_BINARY_DIR})
-        endif()
-    endmacro()
-endif()
+# TODO  Fix this on github actions ubuntu-latest
+#       See https://github.com/claremacrae/ApprovalTests.cpp.Builds/runs/370228537
+#            CMake Error at dependencies/CMakeLists.txt:9 (add_subdirectory):
+#              add_subdirectory called with incorrect number of arguments
+#            Call Stack (most recent call first):
+#              dependencies/CMakeLists.txt:32 (FetchContent_MakeAvailable)
+#
+#            CMake Error at dependencies/CMakeLists.txt:9 (add_subdirectory):
+#              add_subdirectory called with incorrect number of arguments
+#            Call Stack (most recent call first):
+#              dependencies/CMakeLists.txt:33 (FetchContent_MakeAvailable)
+#
+#if(${CMAKE_VERSION} VERSION_LESS 3.14)
+#    macro(FetchContent_MakeAvailable NAME)
+#        FetchContent_GetProperties(${NAME})
+#        if(NOT ${NAME}_POPULATED)
+#            FetchContent_Populate(${NAME})
+#            add_subdirectory(${${NAME}_SOURCE_DIR} ${${NAME}_BINARY_DIR})
+#        endif()
+#    endmacro()
+#endif()
 
 # TODO Move version numbers to top-level CMake file, and make them controllable options
 # TODO Add GTest

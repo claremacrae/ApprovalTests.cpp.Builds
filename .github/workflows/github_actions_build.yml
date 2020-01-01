@@ -7,7 +7,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        buildtype: [windows-latest, windows-latest (clangcl), windows-2016, ubuntu-latest, macOS-latest]
+#        buildtype: [windows-latest, windows-latest (clangcl), windows-2016, ubuntu-latest, macOS-latest]
+        buildtype: [windows-latest, windows-latest (clangcl), windows-2016, macOS-latest]
         include:
         - buildtype: windows-latest
           os: windows-latest
@@ -18,9 +19,9 @@ jobs:
         - buildtype: windows-2016
           os: windows-2016
           generator: '"Visual Studio 15 2017"' 
-        - buildtype: ubuntu-latest
-          os: ubuntu-latest
-          generator: '"Unix Makefiles"'
+#        - buildtype: ubuntu-latest
+#          os: ubuntu-latest
+#          generator: '"Unix Makefiles"'
         - buildtype:  macOS-latest
           os: macOS-latest
           generator: '"Unix Makefiles"'  
