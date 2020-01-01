@@ -3,12 +3,12 @@ include(FetchContent)
 # TODO Move version numbers to top-level CMake file, and make them controllable options
 # TODO Add GTest
 # TODO Add option as to whether to include each of these
-# TODO Add option as to whether to load the tests in each of these
+# TODO Add option as to whether to load the tests in each of these - currently working on this in tests/CMakeLists.txt
 # TODO Add other ApprovalTests projects
 
 FetchContent_Declare(ApprovalTests
                      GIT_REPOSITORY https://github.com/approvals/ApprovalTests.cpp.git
-                     GIT_TAG 16dafceb580c87f140d869f37a2576539051a964)
+                     GIT_TAG 7cbba407a15dcc96cf94232fdf5939a77e6a7057)
 
 FetchContent_Declare(Catch2
                      GIT_REPOSITORY https://github.com/catchorg/Catch2.git
