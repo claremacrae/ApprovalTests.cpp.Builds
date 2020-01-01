@@ -5,6 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         buildtype: [windows-latest, windows-latest (clangcl), windows-2016, ubuntu-latest, macOS-latest]
         include:
@@ -24,7 +25,6 @@ jobs:
           os: macOS-latest
           generator: '"Unix Makefiles"'  
     runs-on: ${{ matrix.os }}
-    fail-fast: false
     steps:
     - uses: actions/checkout@master
     - name: cmake
