@@ -6,12 +6,10 @@ FetchContent_Declare(ApprovalTests
 
 FetchContent_Declare(Catch2
                      GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-                     GIT_TAG v2.11.1
-        )
+                     GIT_TAG v2.11.1)
 
 FetchContent_Declare(doctest
                      GIT_REPOSITORY https://github.com/onqtam/doctest.git
-                     GIT_TAG 2.3.6
-        )
+                     GIT_TAG 2.3.6)
 
 FetchContent_MakeAvailable(ApprovalTests Catch2 doctest)
