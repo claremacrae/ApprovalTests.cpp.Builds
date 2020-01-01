@@ -1,5 +1,16 @@
 include(FetchContent)
 
+# https://cliutils.gitlab.io/modern-cmake/chapters/projects/fetch.html
+if(${CMAKE_VERSION} VERSION_LESS 3.14)
+    macro(FetchContent_MakeAvailable NAME)
+        FetchContent_GetProperties(${NAME})
+        if(NOT ${NAME}_POPULATED)
+            FetchContent_Populate(${NAME})
+            add_subdirectory(${${NAME}_SOURCE_DIR} ${${NAME}_BINARY_DIR})
+        endif()
+    endmacro()
+endif()
+
 # TODO Move version numbers to top-level CMake file, and make them controllable options
 # TODO Add GTest
 # TODO Add option as to whether to include each of these
