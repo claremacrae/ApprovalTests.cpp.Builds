@@ -24,7 +24,16 @@ include(FetchContent)
 #endif()
 
 # TODO Move version numbers to top-level CMake file, and make them controllable options
-# TODO Add other ApprovalTests projects
+# TODO Add ApprovalTests.cpp.StarterProject
+# TODO Add ApprovalTests.cpp.Qt
+# TODO Add ApprovalTests.cpp.Qt.StarterProject
+# TODO Add ApprovalTests.cpp.Demos
+# TODO Add tests of accessing libraries via find_package()
+#      See https://www.reddit.com/r/cmake/comments/a7d3gw/question_add_subdirectory_vs_find_package_vs/
+# TODO Add tests of accessing libraries installed in the system
+# TODO Add tests for when 3rd-pary libraries have already been pulled in, and are not needed
+# TODO Add tests of Ninja generator (and others?)
+# TODO Add tests of latest versions of all dependencies
 
 FetchContent_Declare(ApprovalTests
         GIT_REPOSITORY https://github.com/approvals/ApprovalTests.cpp.git
