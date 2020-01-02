@@ -6,6 +6,8 @@ cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1)
 enable_testing()
 
+set(CMAKE_VERBOSE_MAKEFILE on)
+
 project(ApprovalTests.cpp.Builds)
 
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "The version of C++ to support (11, 14, 17, 20)")
