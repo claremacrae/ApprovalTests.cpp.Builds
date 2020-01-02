@@ -7,6 +7,8 @@ option(APPROVAL_TESTS_BUILDS_USE_CATCH2 "Download, build and test integration wi
 option(APPROVAL_TESTS_BUILDS_USE_DOCTEST "Download, build and test integration with doctest" ON)
 option(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST "Download, build and test integration with Google Test" ON)
 
+message("CMAKE_CXX_COMPILER_ID = ${CMAKE_CXX_COMPILER_ID}")
+message("CMAKE_CXX_COMPILER_VERSION = ${CMAKE_CXX_COMPILER_VERSION}")
 if((CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.2) OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.0))
     option(APPROVAL_TESTS_BUILDS_USE_BOOST_UT "Download, build and test integration with Boost.UT" ON)
 else()
