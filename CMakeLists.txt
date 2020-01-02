@@ -1,8 +1,11 @@
 # FetchContent requires 3.11
 cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 
+project(ApprovalTests.cpp.Builds)
+
+option(APPROVAL_TESTS_BUILDS_USE_BOOST_UT "Download, build and test integration with Boost.UT" ON)
+
 if((CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.2) OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.0))
-    option(APPROVAL_TESTS_BUILDS_USE_BOOST_UT "Download, build and test integration with Boost.UT" ON)
 else()
     MESSAGE("The [Boost].UT integration with Approval Tests requires source_location support by the compiler, therefore it's disabled")
     set(APPROVAL_TESTS_BUILDS_USE_BOOST_UT OFF)
@@ -14,8 +17,6 @@ set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1)
 enable_testing()
 
 set(CMAKE_VERBOSE_MAKEFILE off)
-
-project(ApprovalTests.cpp.Builds)
 
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "The version of C++ to support (11, 14, 17, 20)")
 set(CMAKE_CXX_STANDARD_REQUIRED yes CACHE STRING "")
