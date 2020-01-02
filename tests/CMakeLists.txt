@@ -1,23 +1,6 @@
 if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
     add_subdirectory(catch2_build_tests)
-endif(APPROVAL_TESTS_BUILDS_USE_CATCH2)
 
-if (APPROVAL_TESTS_BUILDS_USE_DOCTEST)
-    add_subdirectory(doctest_build_tests)
-endif(APPROVAL_TESTS_BUILDS_USE_DOCTEST)
-
-if (APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
-    add_subdirectory(googletest_build_tests)
-endif(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
-
-if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
-    add_subdirectory(ut_build_tests)
-endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
-
-# ------------------------------------------------------------------------------
-# Add ApprovalTests tests...
-
-if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
     # Add ApprovalTests Catch2 tests
     add_subdirectory(
             "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/Catch2_Tests"
@@ -26,6 +9,8 @@ if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
 endif(APPROVAL_TESTS_BUILDS_USE_CATCH2)
 
 if (APPROVAL_TESTS_BUILDS_USE_DOCTEST)
+    add_subdirectory(doctest_build_tests)
+
     # Add ApprovalTests doctest tests
     add_subdirectory(
             "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/DocTest_Tests"
@@ -34,6 +19,8 @@ if (APPROVAL_TESTS_BUILDS_USE_DOCTEST)
 endif(APPROVAL_TESTS_BUILDS_USE_DOCTEST)
 
 if (APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
+    add_subdirectory(googletest_build_tests)
+
     # Add ApprovalTests googletest tests
     add_subdirectory(
             "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/GoogleTest_Tests"
@@ -42,6 +29,8 @@ if (APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
 endif(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
 
 if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
+    add_subdirectory(ut_build_tests)
+
     # Add ApprovalTests Boost.ut tests
     add_subdirectory(
             "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/UT_Tests"
