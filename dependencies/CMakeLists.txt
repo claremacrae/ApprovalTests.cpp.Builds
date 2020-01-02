@@ -29,24 +29,24 @@ include(FetchContent)
 # TODO Add other ApprovalTests projects
 
 FetchContent_Declare(ApprovalTests
-                     GIT_REPOSITORY https://github.com/approvals/ApprovalTests.cpp.git
-                     GIT_TAG fead5802b291c6e40ac8be9dfaf8372b9187862d)
+        GIT_REPOSITORY https://github.com/approvals/ApprovalTests.cpp.git
+        GIT_TAG fead5802b291c6e40ac8be9dfaf8372b9187862d)
 
 FetchContent_Declare(Catch2
-                     GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-                     GIT_TAG v2.11.1)
+        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+        GIT_TAG v2.11.1)
 
 FetchContent_Declare(doctest
-                     GIT_REPOSITORY https://github.com/onqtam/doctest.git
-                     GIT_TAG 2.3.6)
+        GIT_REPOSITORY https://github.com/onqtam/doctest.git
+        GIT_TAG 2.3.6)
 
 FetchContent_Declare(googletest
-                     GIT_REPOSITORY https://github.com/abseil/googletest.git
-                     GIT_TAG release-1.8.1)
+        GIT_REPOSITORY https://github.com/abseil/googletest.git
+        GIT_TAG release-1.8.1)
 
 FetchContent_Declare(ut
-                     GIT_REPOSITORY https://github.com/boost-experimental/ut.git
-                     GIT_TAG 8004290d195b08eda531eb015ddcda2e11d41ce9)
+        GIT_REPOSITORY https://github.com/boost-experimental/ut.git
+        GIT_TAG 8004290d195b08eda531eb015ddcda2e11d41ce9)
 
 FetchContent_MakeAvailable(ApprovalTests)
 FetchContent_MakeAvailable(Catch2)
