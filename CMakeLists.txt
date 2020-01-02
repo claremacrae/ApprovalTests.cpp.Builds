@@ -11,15 +11,19 @@ message("CMAKE_CXX_COMPILER_ID = ${CMAKE_CXX_COMPILER_ID}")
 message("CMAKE_CXX_COMPILER_VERSION = ${CMAKE_CXX_COMPILER_VERSION}")
 if((CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.2) OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.0))
     option(APPROVAL_TESTS_BUILDS_USE_BOOST_UT "Download, build and test integration with Boost.UT" ON)
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND CMAKE_CXX_SIMULATE_ID MATCHES "MSVC")
-    # Does not currently build with clang-cl
-    # See https://github.com/boost-experimental/ut/issues/277
-    MESSAGE("[Boost].UT breaks compiler args for clang-cl, therefore it's disabled")
-    set(APPROVAL_TESTS_BUILDS_USE_BOOST_UT OFF)
 else()
     MESSAGE("The [Boost].UT integration with Approval Tests requires source_location support by the compiler, therefore it's disabled")
     set(APPROVAL_TESTS_BUILDS_USE_BOOST_UT OFF)
 endif()
+
+if(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND CMAKE_CXX_SIMULATE_ID MATCHES "MSVC")
+        # Does not currently build with clang-cl
+        # See https://github.com/boost-experimental/ut/issues/277
+        MESSAGE("[Boost].UT breaks compiler args for clang-cl, therefore it's disabled")
+        set(APPROVAL_TESTS_BUILDS_USE_BOOST_UT OFF)
+    endif()
+endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
 
 # Hack to prevent CTest-added targets from cluttering up CLion's list of targets
 # See https://stackoverflow.com/questions/44949354/hide-automatically-generated-ctest-targets
