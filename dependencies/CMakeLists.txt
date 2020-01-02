@@ -48,7 +48,9 @@ FetchContent_Declare(googletest
         GIT_TAG release-1.8.1)
 FetchContent_MakeAvailable(googletest)
 
-FetchContent_Declare(ut
-        GIT_REPOSITORY https://github.com/boost-experimental/ut.git
-        GIT_TAG 8004290d195b08eda531eb015ddcda2e11d41ce9)
-FetchContent_MakeAvailable(ut)
+if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
+    FetchContent_Declare(ut
+            GIT_REPOSITORY https://github.com/boost-experimental/ut.git
+            GIT_TAG 8004290d195b08eda531eb015ddcda2e11d41ce9)
+    FetchContent_MakeAvailable(ut)
+endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)

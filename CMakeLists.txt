@@ -1,6 +1,8 @@
 # FetchContent requires 3.11
 cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 
+option(APPROVAL_TESTS_BUILDS_USE_BOOST_UT "Download, build and test integration with Boost.UT" ON)
+
 # Hack to prevent CTest-added targets from cluttering up CLion's list of targets
 # See https://stackoverflow.com/questions/44949354/hide-automatically-generated-ctest-targets
 set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1)

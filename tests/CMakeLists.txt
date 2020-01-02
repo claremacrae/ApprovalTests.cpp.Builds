@@ -1,7 +1,10 @@
 add_subdirectory(catch2_build_tests)
 add_subdirectory(doctest_build_tests)
 add_subdirectory(googletest_build_tests)
-add_subdirectory(ut_build_tests)
+
+if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
+    add_subdirectory(ut_build_tests)
+endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
 
 # ------------------------------------------------------------------------------
 # Add ApprovalTests tests...
@@ -26,9 +29,10 @@ add_subdirectory(
         "${CMAKE_BINARY_DIR}/_deps/approvaltests-build/tests/GoogleTest_Tests"
 )
 
-# Add ApprovalTests Boost.ut tests
-
-add_subdirectory(
-        "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/UT_Tests"
-        "${CMAKE_BINARY_DIR}/_deps/approvaltests-build/tests/UT_Tests"
-)
+if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
+    # Add ApprovalTests Boost.ut tests
+    add_subdirectory(
+            "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/UT_Tests"
+            "${CMAKE_BINARY_DIR}/_deps/approvaltests-build/tests/UT_Tests"
+    )
+endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
