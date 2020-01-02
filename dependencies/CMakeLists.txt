@@ -24,8 +24,6 @@ include(FetchContent)
 #endif()
 
 # TODO Move version numbers to top-level CMake file, and make them controllable options
-# TODO Add option as to whether to include each of these
-# TODO Add option as to whether to load the tests in each of these - currently working on this in tests/CMakeLists.txt
 # TODO Add other ApprovalTests projects
 
 FetchContent_Declare(ApprovalTests
