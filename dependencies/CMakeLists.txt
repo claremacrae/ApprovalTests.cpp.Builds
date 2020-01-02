@@ -47,6 +47,9 @@ FetchContent_Declare(googletest
         GIT_REPOSITORY https://github.com/abseil/googletest.git
         GIT_TAG release-1.8.1)
 FetchContent_MakeAvailable(googletest)
+# Prevent GoogleTest from overriding our compiler/linker options
+# when building with Visual Studio
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
     FetchContent_Declare(ut
