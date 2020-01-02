@@ -2,7 +2,9 @@ if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
     add_subdirectory(catch2_build_tests)
 endif(APPROVAL_TESTS_BUILDS_USE_CATCH2)
 
-add_subdirectory(doctest_build_tests)
+if (APPROVAL_TESTS_BUILDS_USE_DOCTEST)
+    add_subdirectory(doctest_build_tests)
+endif(APPROVAL_TESTS_BUILDS_USE_DOCTEST)
 
 if (APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
     add_subdirectory(googletest_build_tests)
@@ -23,12 +25,13 @@ if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
     )
 endif(APPROVAL_TESTS_BUILDS_USE_CATCH2)
 
-# Add ApprovalTests doctest tests
-
-add_subdirectory(
-        "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/DocTest_Tests"
-        "${CMAKE_BINARY_DIR}/_deps/approvaltests-build/tests/DocTest_Tests"
-)
+if (APPROVAL_TESTS_BUILDS_USE_DOCTEST)
+    # Add ApprovalTests doctest tests
+    add_subdirectory(
+            "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/DocTest_Tests"
+            "${CMAKE_BINARY_DIR}/_deps/approvaltests-build/tests/DocTest_Tests"
+    )
+endif(APPROVAL_TESTS_BUILDS_USE_DOCTEST)
 
 if (APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
     # Add ApprovalTests googletest tests
