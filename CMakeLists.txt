@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 
 project(ApprovalTests.cpp.Builds)
 
+option(APPROVAL_TESTS_BUILDS_USE_CATCH2 "Download, build and test integration with Catch2" ON)
+option(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST "Download, build and test integration with Google Test" ON)
 option(APPROVAL_TESTS_BUILDS_USE_BOOST_UT "Download, build and test integration with Boost.UT" ON)
 
 if((CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.2) OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.0))

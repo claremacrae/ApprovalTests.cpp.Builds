@@ -33,10 +33,12 @@ FetchContent_Declare(ApprovalTests
         GIT_TAG fead5802b291c6e40ac8be9dfaf8372b9187862d)
 FetchContent_MakeAvailable(ApprovalTests)
 
-FetchContent_Declare(Catch2
-        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v2.11.1)
-FetchContent_MakeAvailable(Catch2)
+if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
+    FetchContent_Declare(Catch2
+            GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+            GIT_TAG v2.11.1)
+    FetchContent_MakeAvailable(Catch2)
+endif(APPROVAL_TESTS_BUILDS_USE_CATCH2)
 
 FetchContent_Declare(doctest
         GIT_REPOSITORY https://github.com/onqtam/doctest.git
