@@ -13,7 +13,7 @@ endif()
 set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1)
 enable_testing()
 
-set(CMAKE_VERBOSE_MAKEFILE on)
+set(CMAKE_VERBOSE_MAKEFILE off)
 
 project(ApprovalTests.cpp.Builds)
 
