@@ -1,5 +1,6 @@
 add_subdirectory(catch2_build_tests)
 add_subdirectory(doctest_build_tests)
+add_subdirectory(ut_build_tests)
 
 # ------------------------------------------------------------------------------
 # Add ApprovalTests tests...
@@ -18,6 +19,11 @@ add_subdirectory(
         "${CMAKE_BINARY_DIR}/_deps/approvaltests-build/tests/DocTest_Tests"
 )
 
-# TODO Add ApprovalTests doctest tests
 # TODO Add ApprovalTests googletest tests
-# TODO Add ApprovalTests Boost.ut tests
+
+# Add ApprovalTests Boost.ut tests
+
+add_subdirectory(
+        "${CMAKE_BINARY_DIR}/_deps/approvaltests-src/tests/UT_Tests"
+        "${CMAKE_BINARY_DIR}/_deps/approvaltests-build/tests/UT_Tests"
+)
