@@ -1,7 +1,12 @@
 # FetchContent requires 3.11
 cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 
-option(APPROVAL_TESTS_BUILDS_USE_BOOST_UT "Download, build and test integration with Boost.UT" ON)
+if((CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.2) OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL 9.0))
+    option(APPROVAL_TESTS_BUILDS_USE_BOOST_UT "Download, build and test integration with Boost.UT" ON)
+else()
+    MESSAGE("The [Boost].UT integration with Approval Tests requires source_location support by the compiler, therefore it's disabled")
+    set(APPROVAL_TESTS_BUILDS_USE_BOOST_UT OFF)
+endif()
 
 # Hack to prevent CTest-added targets from cluttering up CLion's list of targets
 # See https://stackoverflow.com/questions/44949354/hide-automatically-generated-ctest-targets
