@@ -41,6 +41,10 @@ FetchContent_Declare(doctest
                      GIT_REPOSITORY https://github.com/onqtam/doctest.git
                      GIT_TAG 2.3.6)
 
+FetchContent_Declare(googletest
+                     GIT_REPOSITORY https://github.com/abseil/googletest.git
+                     GIT_TAG release-1.8.1)
+
 FetchContent_Declare(ut
                      GIT_REPOSITORY https://github.com/boost-experimental/ut.git
                      GIT_TAG 8004290d195b08eda531eb015ddcda2e11d41ce9)
@@ -48,4 +52,5 @@ FetchContent_Declare(ut
 FetchContent_MakeAvailable(ApprovalTests)
 FetchContent_MakeAvailable(Catch2)
 FetchContent_MakeAvailable(doctest)
+FetchContent_MakeAvailable(googletest)
 FetchContent_MakeAvailable(ut)
