@@ -67,12 +67,13 @@ if (APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
 endif(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
 
 if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
+    # ec49196855078d98738f54023b488b2f85299826 is the first commit that works with FetchContent
     # TODO Add a Boost.UT issue asking for option names to have a prefix added
     set(BUILD_BENCHMARKS OFF)
     set(BUILD_EXAMPLES OFF)
     set(BUILD_TESTS OFF)
     FetchContent_Declare(ut
             GIT_REPOSITORY https://github.com/boost-experimental/ut.git
-            GIT_TAG 8004290d195b08eda531eb015ddcda2e11d41ce9)
+            GIT_TAG ec49196855078d98738f54023b488b2f85299826)
     FetchContent_MakeAvailable(ut)
 endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
