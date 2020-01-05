@@ -48,9 +48,10 @@ if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
 endif(APPROVAL_TESTS_BUILDS_USE_CATCH2)
 
 if (APPROVAL_TESTS_BUILDS_USE_DOCTEST)
+    # 2.3.4 is oldest supported, as of 2020-01-05
     FetchContent_Declare(doctest
             GIT_REPOSITORY https://github.com/onqtam/doctest.git
-            GIT_TAG 2.3.6)
+            GIT_TAG 2.3.4)
     FetchContent_MakeAvailable(doctest)
 endif(APPROVAL_TESTS_BUILDS_USE_DOCTEST)
 
