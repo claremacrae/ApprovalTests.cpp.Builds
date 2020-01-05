@@ -41,9 +41,10 @@ FetchContent_Declare(ApprovalTests
 FetchContent_MakeAvailable(ApprovalTests)
 
 if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
+    # 2.3.0 is oldest supported, as of 2020-01-05
     FetchContent_Declare(Catch2
             GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-            GIT_TAG v2.11.1)
+            GIT_TAG v2.3.0)
     FetchContent_MakeAvailable(Catch2)
 endif(APPROVAL_TESTS_BUILDS_USE_CATCH2)
 
