@@ -35,16 +35,22 @@ include(FetchContent)
 # TODO Add tests of Ninja generator (and others?)
 # TODO Add tests of latest versions of all dependencies
 
+set(APPROVAL_TESTS_BUILDS_USE_APPROVAL_TESTS_CPP_GIT_TAG    fead5802b291c6e40ac8be9dfaf8372b9187862d)
+set(APPROVAL_TESTS_BUILDS_USE_CATCH2_GIT_TAG                v2.3.0)
+set(APPROVAL_TESTS_BUILDS_USE_DOCTEST_GIT_TAG               2.3.4)
+set(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST_GIT_TAG           release-1.8.1)
+set(APPROVAL_TESTS_BUILDS_USE_BOOST_UT_GIT_TAG              ec49196855078d98738f54023b488b2f85299826)
+
 FetchContent_Declare(ApprovalTests
         GIT_REPOSITORY https://github.com/approvals/ApprovalTests.cpp.git
-        GIT_TAG fead5802b291c6e40ac8be9dfaf8372b9187862d)
+        GIT_TAG ${APPROVAL_TESTS_BUILDS_USE_APPROVAL_TESTS_CPP_GIT_TAG})
 FetchContent_MakeAvailable(ApprovalTests)
 
 if (APPROVAL_TESTS_BUILDS_USE_CATCH2)
     # 2.3.0 is oldest supported, as of 2020-01-05
     FetchContent_Declare(Catch2
             GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-            GIT_TAG v2.3.0)
+            GIT_TAG ${APPROVAL_TESTS_BUILDS_USE_CATCH2_GIT_TAG})
     FetchContent_MakeAvailable(Catch2)
 endif(APPROVAL_TESTS_BUILDS_USE_CATCH2)
 
@@ -52,7 +58,7 @@ if (APPROVAL_TESTS_BUILDS_USE_DOCTEST)
     # 2.3.4 is oldest supported, as of 2020-01-05
     FetchContent_Declare(doctest
             GIT_REPOSITORY https://github.com/onqtam/doctest.git
-            GIT_TAG 2.3.4)
+            GIT_TAG ${APPROVAL_TESTS_BUILDS_USE_DOCTEST_GIT_TAG})
     FetchContent_MakeAvailable(doctest)
 endif(APPROVAL_TESTS_BUILDS_USE_DOCTEST)
 
@@ -62,7 +68,7 @@ if (APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
     set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
     FetchContent_Declare(googletest
             GIT_REPOSITORY https://github.com/abseil/googletest.git
-            GIT_TAG release-1.8.1)
+            GIT_TAG ${APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST_GIT_TAG})
     FetchContent_MakeAvailable(googletest)
 endif(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST)
 
@@ -74,6 +80,6 @@ if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
     set(BUILD_TESTS OFF)
     FetchContent_Declare(ut
             GIT_REPOSITORY https://github.com/boost-experimental/ut.git
-            GIT_TAG ec49196855078d98738f54023b488b2f85299826)
+            GIT_TAG ${APPROVAL_TESTS_BUILDS_USE_BOOST_UT_GIT_TAG})
     FetchContent_MakeAvailable(ut)
 endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
