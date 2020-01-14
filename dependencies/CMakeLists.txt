@@ -76,4 +76,13 @@ if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
             GIT_REPOSITORY https://github.com/boost-experimental/ut.git
             GIT_TAG ${APPROVAL_TESTS_BUILDS_USE_BOOST_UT_GIT_TAG})
     FetchContent_MakeAvailable(ut)
+
+    if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+        # Turn off some checks for issues that should be fixed in ApprovalTests code
+        target_compile_options(boost.ut INTERFACE
+                -Wno-newline-eof
+                -Wno-shadow-field-in-constructor
+                -Wno-weak-vtables
+                )
+    endif()
 endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
