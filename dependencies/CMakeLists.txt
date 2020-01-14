@@ -83,6 +83,7 @@ if (APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
                 -Wno-newline-eof
                 -Wno-shadow-field-in-constructor
                 -Wno-weak-vtables
+                -Wno-c99-extensions # Needed for Boost.ut, at least in v1.1.6
                 )
     endif()
 endif(APPROVAL_TESTS_BUILDS_USE_BOOST_UT)
