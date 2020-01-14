@@ -7,7 +7,7 @@ option(APPROVAL_TESTS_BUILDS_USE_CATCH2 "Download, build and test integration wi
 option(APPROVAL_TESTS_BUILDS_USE_DOCTEST "Download, build and test integration with doctest" ON)
 option(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST "Download, build and test integration with Google Test" ON)
 
-set(APPROVAL_TESTS_BUILDS_USE_APPROVAL_TESTS_CPP_GIT_TAG    fead5802b291c6e40ac8be9dfaf8372b9187862d)
+set(APPROVAL_TESTS_BUILDS_USE_APPROVAL_TESTS_CPP_GIT_TAG    master)
 
 set(APPROVAL_TESTS_BUILDS_USE_CATCH                         OFF)
 set(APPROVAL_TESTS_BUILDS_USE_CATCH2_GIT_TAG                v2.3.0)
@@ -19,6 +19,7 @@ set(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST                   OFF)
 set(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST_GIT_TAG           release-1.8.1)
 
 set(APPROVAL_TESTS_BUILDS_USE_BOOST                         ON)
+# Can't update to master at the moment https://github.com/boost-experimental/ut/issues/291
 set(APPROVAL_TESTS_BUILDS_USE_BOOST_UT_GIT_TAG              ec49196855078d98738f54023b488b2f85299826)
 
 
