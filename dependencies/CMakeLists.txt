@@ -35,12 +35,6 @@ include(FetchContent)
 # TODO Add tests of Ninja generator (and others?)
 # TODO Add tests of latest versions of all dependencies
 
-set(APPROVAL_TESTS_BUILDS_USE_APPROVAL_TESTS_CPP_GIT_TAG    fead5802b291c6e40ac8be9dfaf8372b9187862d)
-set(APPROVAL_TESTS_BUILDS_USE_CATCH2_GIT_TAG                v2.3.0)
-set(APPROVAL_TESTS_BUILDS_USE_DOCTEST_GIT_TAG               2.3.4)
-set(APPROVAL_TESTS_BUILDS_USE_GOOGLE_TEST_GIT_TAG           release-1.8.1)
-set(APPROVAL_TESTS_BUILDS_USE_BOOST_UT_GIT_TAG              ec49196855078d98738f54023b488b2f85299826)
-
 FetchContent_Declare(ApprovalTests
         GIT_REPOSITORY https://github.com/approvals/ApprovalTests.cpp.git
         GIT_TAG ${APPROVAL_TESTS_BUILDS_USE_APPROVAL_TESTS_CPP_GIT_TAG})
